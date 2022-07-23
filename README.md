@@ -24,5 +24,5 @@ En este videojuego debes encontrar los 4 cubos que desbloqueen la puerta antes d
 - Instancia de meteoritos arriba del laberinto
 - Laberintos sobre un meteorito mayor
 
-
+Nota: Escena princial es "MovementTest"
 Desarrollado por: @AndersonGar & @NKR99
