@@ -23,3 +23,6 @@ En este videojuego debes encontrar los 4 cubos que desbloqueen la puerta antes d
 - Cambio de cámara en tercera persona al treparse o estar arriba
 - Instancia de meteoritos arriba del laberinto
 - Laberintos sobre un meteorito mayor
+
+
+Desarrollado por: @AndersonGar & @NKR99
