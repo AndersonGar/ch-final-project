@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheckMazeListWithArray();
+        LeftCheckMazeList();
+        RightCheckMazeList();
         InstiateMaze();
         ResetTimer();
     }
@@ -37,7 +40,34 @@ public class GameManager : MonoBehaviour
         }
         InstiateMaze();
         ResetTimer();
+    }
 
+    void RightCheckMazeList()
+    {
+        for (int i = 0; i < mazeList.Count; i++)
+        {
+            Debug.Log("Laberinto "+(i+1)+" listo");
+        }
+    }
+
+    void LeftCheckMazeList()
+    {
+        for (int i = mazeList.Count - 1; i>= 0; i--)
+        {
+            Debug.Log("Laberinto " + (i + 1) + " listo");
+        }
+    }
+
+    void CheckMazeListWithArray()
+    {
+        GameObject[] mazeArray = mazeList.ToArray();
+        foreach (var maze in mazeArray)
+        {
+            if (maze != null)
+            {
+                Debug.Log("Laberinto listo");
+            }
+        }
     }
 
     public void InstiateMaze()
