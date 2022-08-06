@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     bool mayMove = false;
     bool onGround, onWall;
     Animator animator;
+    public UIGameCanvas gameCanvas;
 
     int pickups = 0;
 
@@ -110,23 +111,8 @@ public class PlayerManager : MonoBehaviour
 
     void PickupMessageUI()
     {
-        switch (pickups)
-        {
-            case 1:
-                Debug.Log("Haz eliminado el primer cubo");
-                break;
-            case 2:
-                Debug.Log("Haz eliminado la mitad de los cubos");
-                break;
-            case 3:
-                Debug.Log("Tan solo te falta un cubo");
-                break;
-            case 4:
-                Debug.Log("Haz eliminado todos los cubos, encuentra la puerta");
-                break;
-            default:
-                break;
-        }
+        gameCanvas.UpdateCubeCounterText(pickups);
+        gameCanvas.UpdateMessageText(pickups);
     }
 
     void CheckGameGoal()

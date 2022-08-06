@@ -363,6 +363,7 @@ MonoBehaviour:
   level: 0
   player: {fileID: 184351390}
   timer: 300
+  gameCanvas: {fileID: 1445054549}
 --- !u!4 &981544029
 Transform:
   m_ObjectHideFlags: 0
@@ -555,6 +556,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1445054549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+  m_PrefabInstance: {fileID: 1802244228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1616652adefa4b94eb889978ffe571e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1736614409
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +669,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3339534472595336731, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339534472729130424, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: m_Name
       value: HUB
@@ -745,8 +761,105 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3339534472729130429, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 6945250159590442849}
+    - target: {fileID: 3339534472729130429, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339534472992796144, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339534473386495622, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339534473386495622, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: txtTimer
+      value: 
+      objectReference: {fileID: 1802244231}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: txtMessages
+      value: 
+      objectReference: {fileID: 1802244229}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: txtCubeCounter
+      value: 
+      objectReference: {fileID: 1802244230}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[0]
+      value: Tienes 5 minutos para hallar las 4 cajas y abrir la puerta
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[1]
+      value: Haz eliminado el primer cubo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[2]
+      value: Haz eliminado la mitad de los cubos
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[3]
+      value: Tan solo te falta un cubo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[4]
+      value: Haz eliminado todos los cubos, encuentra la puerta
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[5]
+      value: Ganaste, felicitaciones
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[6]
+      value: "Perdiste, el tiempo se acab\xF3"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+--- !u!114 &1802244229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3339534472773208033, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+  m_PrefabInstance: {fileID: 1802244228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1802244230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3339534473386495622, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+  m_PrefabInstance: {fileID: 1802244228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1802244231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3339534472992796150, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+  m_PrefabInstance: {fileID: 1802244228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1930393505
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +1014,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3147878929700559612, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
+      propertyPath: gameCanvas
+      value: 
+      objectReference: {fileID: 1445054549}
+    - target: {fileID: 3147878929700559612, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
       propertyPath: killHeight
       value: -20
       objectReference: {fileID: 0}
@@ -962,3 +1079,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
+--- !u!20 &6945250159590442849 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4482932104784849973, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
+  m_PrefabInstance: {fileID: 6945250159590442848}
+  m_PrefabAsset: {fileID: 0}

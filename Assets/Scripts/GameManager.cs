@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerManager player;
     public float timer;
     float time;
-
+    public UIGameCanvas gameCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         level++;
         if (level >= mazeList.Count)
         {
+            gameCanvas.UpdateMessageText(5);
             Debug.Log("Ganaste, felicitaciones");
             return;
         }
@@ -54,15 +55,24 @@ public class GameManager : MonoBehaviour
     void Timer()
     {
         time -= Time.deltaTime;
+        int _minutes = (int)(time / 60f);
+        int _seconds = (int)(time - _minutes * 60f);
+        int _miliseconds = (int)((time - (int)time) * 100f);
         if (time <= 0)
         {
+            gameCanvas.UpdateMessageText(6);
             Debug.Log("Perdiste, el tiempo se acabó");
+            _minutes = 0;
+            _seconds = 0;
+            _miliseconds = 0;
         }
+        gameCanvas.UpdateTimerText(_minutes, _seconds, _miliseconds);
     }
 
     void ResetTimer()
     {
         time = timer;
+        gameCanvas.UpdateMessageText(0);
         print("Tienes "+timer+" segundos para hallar las 4 cajas y abrir la puerta");
     }
 }
