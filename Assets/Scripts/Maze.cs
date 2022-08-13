@@ -8,12 +8,19 @@ public class Maze : MonoBehaviour
     public Renderer doorMat;
     public Transform spawnZone;
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        PlayerManager.cubesCollected += DesactiveDoor;
+    }
+
+    private void OnDisable()
+    {
+        PlayerManager.cubesCollected -= DesactiveDoor;
+    }
     public void DesactiveDoor()
     {
-
-        //door.SetActive(false);
-        Color c = doorMat.material.color;
-        doorMat.material.color = new Color(c.r,c.g,c.b,0.25f);
+        doorMat.enabled = false;
+        door.GetComponentInChildren<ParticleSystem>().Play();
         door.GetComponent<BoxCollider>().isTrigger = true;
         
     }

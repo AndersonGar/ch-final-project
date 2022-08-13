@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIGameCanvas : MonoBehaviour
 {
     public TextMeshProUGUI txtTimer, txtCubeCounter, txtMessages;
     public string[] messagesValues = new string[7];
+    [SerializeField] UnityEvent OnNotification;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class UIGameCanvas : MonoBehaviour
     public void UpdateMessageText(int i)
     {
         string _message = messagesValues[i];
+        OnNotification.Invoke();
         StartCoroutine(StartMessaging(_message));
     }
 

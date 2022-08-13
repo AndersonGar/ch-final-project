@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,13 +11,19 @@ public class GameManager : MonoBehaviour
     public GameObject maze, door;
     public int level = 0;
     public PlayerManager player;
-    public float timer;
+    public float timer, timeLimit;
     float time;
     public UIGameCanvas gameCanvas;
+    public static event Action<Vector3> changePositionPlayer;
+    public static event Action<float, float> OnTimelineLimit;
+    public static event Action OnResetTime;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerManager.cubesCollected += OpenDoor;
+        PlayerManager.crossDoor += ChangeMaze;
         InstiateMaze();
         ResetTimer();
     }
@@ -44,13 +52,19 @@ public class GameManager : MonoBehaviour
     public void InstiateMaze()
     {
         maze = Instantiate(mazeList[level], mazePosition, Quaternion.identity);
-        StartCoroutine(player.SpawnPlayer(maze.GetComponent<Maze>().spawnZone.position));
+        Vector3 pos = maze.GetComponent<Maze>().spawnZone.position;
+        if (changePositionPlayer != null)
+        {
+            changePositionPlayer(pos);
+        }
+        
+        //StartCoroutine(player.SpawnPlayer(maze.GetComponent<Maze>().spawnZone.position));
     }
 
-    public void OpenDoor()
-    {
-        this.maze.GetComponent<Maze>().DesactiveDoor();
-    }
+    //public void OpenDoor()
+    //{
+    //    this.maze.GetComponent<Maze>().DesactiveDoor();
+    //}
 
     void Timer()
     {
@@ -66,6 +80,13 @@ public class GameManager : MonoBehaviour
             _seconds = 0;
             _miliseconds = 0;
         }
+        else if (time <= timeLimit)
+        {
+            if (OnTimelineLimit != null)
+            {
+                OnTimelineLimit.Invoke(time, timeLimit);
+            }
+        }
         gameCanvas.UpdateTimerText(_minutes, _seconds, _miliseconds);
     }
 
@@ -73,6 +94,9 @@ public class GameManager : MonoBehaviour
     {
         time = timer;
         gameCanvas.UpdateMessageText(0);
-        print("Tienes "+timer+" segundos para hallar las 4 cajas y abrir la puerta");
+        if (OnResetTime != null)
+        {
+            OnResetTime.Invoke();
+        }
     }
 }

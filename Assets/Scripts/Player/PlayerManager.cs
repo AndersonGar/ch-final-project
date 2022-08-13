@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,8 @@ public class PlayerManager : MonoBehaviour
     bool onGround, onWall;
     Animator animator;
     public UIGameCanvas gameCanvas;
-
     int pickups = 0;
+    public static event Action cubesCollected, crossDoor;
 
 
     // Start is called before the first frame update
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         characterController = this.GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        GameManager.changePositionPlayer += SpawningPlayer;
     }
     private void FixedUpdate()
     {
@@ -89,7 +90,11 @@ public class PlayerManager : MonoBehaviour
         }
         if (other.gameObject.tag == "Puerta")
         {
-            gameManager.ChangeMaze();
+            //gameManager.ChangeMaze();
+            if (crossDoor != null)
+            {
+                crossDoor();
+            }
         }
     }
 
@@ -120,7 +125,11 @@ public class PlayerManager : MonoBehaviour
         if (pickups >= 4)
         {
             Debug.Log("Abriendo puertas");
-            gameManager.OpenDoor();
+            if (cubesCollected != null)
+            {
+                cubesCollected();
+            }
+            //gameManager.OpenDoor();
             pickups = 0;
         }
     }
@@ -155,8 +164,14 @@ public class PlayerManager : MonoBehaviour
         animator.SetBool(animName, status);
     }
 
+    void SpawningPlayer(Vector3 pos)
+    {
+        StartCoroutine(SpawnPlayer(pos));
+    }
+
     public IEnumerator SpawnPlayer(Vector3 position)
     {
+        gameCanvas.UpdateCubeCounterText(0);
         mayMove = false;
         transform.position = position;
         yield return new WaitForSeconds(1);
