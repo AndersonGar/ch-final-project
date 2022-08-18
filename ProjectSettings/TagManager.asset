@@ -7,11 +7,12 @@ TagManager:
   - Ground
   - Wall
   - Recollectable
+  - Puerta
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PP
   - Water
   - UI
   - 
