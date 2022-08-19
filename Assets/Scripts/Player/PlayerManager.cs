@@ -104,9 +104,12 @@ public class PlayerManager : MonoBehaviour
         parent.gameObject.GetComponent<Light>().enabled = false;
         for (int i = 0; i < parent.childCount; i++)
         {
-            parent.GetChild(i).gameObject.tag = "Untagged";
-            parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
-            parent.GetChild(i).GetComponent<BoxCollider>().isTrigger = false;
+            if (parent.GetChild(i).gameObject.tag == "Recollectable")
+            {
+                parent.GetChild(i).gameObject.tag = "Untagged";
+                parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
+                parent.GetChild(i).GetComponent<BoxCollider>().isTrigger = false;
+            }
         }
         pickups++;
         PickupMessageUI();
