@@ -4,36 +4,31 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public static CameraManager cameraManager;
-
-    //Variables de camaras
-    public Camera playerCamera;
-    bool posChanging = false;
+    Camera camera;
     // Start is called before the first frame update
     void Start()
     {
-        
+        camera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (posChanging)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            
+            if (camera.targetDisplay > 0)
+            {
+                camera.targetDisplay = 0;
+            }
+            else
+            {
+                camera.targetDisplay = 1;
+            }
         }
     }
 
-    public static void ChangeUbication(Vector3 position)
-    {
-        cameraManager.MoveTo(position);
-    }
+    
 
-    public void MoveTo(Vector3 position)
-    {
-        //Transform camera = cameraManager.playerCamera.transform;
-        //camera.position = Vector3.MoveTowards(camera.position,position,5f);
-    }
 
 
 }

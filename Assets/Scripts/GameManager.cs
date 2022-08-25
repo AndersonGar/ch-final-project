@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public static event Action<Vector3> changePositionPlayer;
     public static event Action<float, float> OnTimelineLimit;
     public static event Action OnResetTime;
+    public static event Action<Transform> onInstantianteingMaze;
 
 
     // Start is called before the first frame update
@@ -57,14 +58,13 @@ public class GameManager : MonoBehaviour
         {
             changePositionPlayer(pos);
         }
-        
-        //StartCoroutine(player.SpawnPlayer(maze.GetComponent<Maze>().spawnZone.position));
+        if (onInstantianteingMaze != null)
+        {
+            onInstantianteingMaze(maze.transform);
+        }
+
     }
 
-    //public void OpenDoor()
-    //{
-    //    this.maze.GetComponent<Maze>().DesactiveDoor();
-    //}
 
     void Timer()
     {
