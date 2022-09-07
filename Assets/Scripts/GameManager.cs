@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     {
         maze.SetActive(false);
         level++;
+        PlayerPrefs.SetInt("mazes_completed", level);
+        PlayerPrefs.Save();
         if (level >= mazeList.Count)
         {
             gameCanvas.UpdateMessageText(5);
