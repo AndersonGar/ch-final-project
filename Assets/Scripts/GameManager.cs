@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public static event Action<Vector3> changePositionPlayer;
     public static event Action<float, float> OnTimelineLimit;
     public static event Action OnResetTime;
-    public static event Action<Transform> onInstantianteingMaze;
+    public static event Action<Transform> onInstantianteingMaze,onChangingPosFromTwister;
 
 
     // Start is called before the first frame update
@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     {
         maze.SetActive(false);
         level++;
+        PlayerPrefs.SetInt("mazes_completed", level);
+        PlayerPrefs.Save();
         if (level >= mazeList.Count)
         {
             gameCanvas.UpdateMessageText(5);
@@ -50,10 +52,12 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     public void InstiateMaze()
     {
         maze = Instantiate(mazeList[level], mazePosition, Quaternion.identity);
         Vector3 pos = maze.GetComponent<Maze>().spawnZone.position;
+        Transform twisterPos = maze.GetComponent<Maze>().twister;
         if (changePositionPlayer != null)
         {
             changePositionPlayer(pos);
@@ -61,6 +65,10 @@ public class GameManager : MonoBehaviour
         if (onInstantianteingMaze != null)
         {
             onInstantianteingMaze(maze.transform);
+        }
+        if (onChangingPosFromTwister != null)
+        {
+            onChangingPosFromTwister(twisterPos);
         }
 
     }

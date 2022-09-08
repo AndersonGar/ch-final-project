@@ -22,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     public UIGameCanvas gameCanvas;
     int pickups = 0;
     public static event Action cubesCollected, crossDoor;
+    public static event Action<Transform> onTouchingEnemy;
 
 
     // Start is called before the first frame update
@@ -95,6 +96,22 @@ public class PlayerManager : MonoBehaviour
             {
                 crossDoor();
             }
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            mayMove = false;
+            if (onTouchingEnemy != null)
+            {
+                onTouchingEnemy(this.transform);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            mayMove = true;
         }
     }
 
