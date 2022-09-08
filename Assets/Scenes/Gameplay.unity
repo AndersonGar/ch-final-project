@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 46c71c68d49b6464c9640311d57637c3, type: 2}
+--- !u!1 &79237063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 309108799, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
+  m_PrefabInstance: {fileID: 1372574222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &127062950
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +910,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 309108799, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 478519906, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1024,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 6864031338579049902, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
       propertyPath: meteorEffect
       value: 
-      objectReference: {fileID: 1372574223}
+      objectReference: {fileID: 79237063}
     - target: {fileID: 7125606497936133827, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1039,11 +1048,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
---- !u!1 &1372574223 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7460041526500189229, guid: a3169e5e0e7a529468edd46706c85f21, type: 3}
-  m_PrefabInstance: {fileID: 1372574222}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1445054549 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
@@ -1696,7 +1700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 90.91101, y: -30, z: 0}
 --- !u!1 &2022826562 stripped
 GameObject:
