@@ -12,7 +12,7 @@ public class UIGameCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        txtTimer.text = "5:00:00";
+        txtTimer.text = string.Format("{0:00}:{1:00}",5,0);
         txtMessages.text = "";
         txtCubeCounter.text = "0/4";
     }
@@ -25,7 +25,7 @@ public class UIGameCanvas : MonoBehaviour
 
     public void UpdateTimerText(int minutes, int seconds, int miliseconds)
     {
-        txtTimer.text = minutes + ":" + seconds + ":" + miliseconds;
+        txtTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void UpdateMessageText(int i)
