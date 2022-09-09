@@ -13,6 +13,23 @@ public class MeteorManager : MonoBehaviour
     {
 
         GameManager.onInstantianteingMaze += StartFalling;
+        MenuManager.onPausingOrResuming += StreamSound;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.onInstantianteingMaze -= StartFalling;
+        MenuManager.onPausingOrResuming -= StreamSound;
+    }
+
+    void StreamSound(bool value)
+    {
+        GetComponent<AudioSource>().Play();
+        if (!value)
+        {
+            GetComponent<AudioSource>().Pause();
+        }
+        
     }
 
     // Update is called once per frame

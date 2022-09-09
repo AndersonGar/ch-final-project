@@ -26,7 +26,10 @@ public class PlayerManager : MonoBehaviour
     public static event Action cubesCollected, crossDoor;
     public static event Action<Transform> onTouchingEnemy;
 
-
+    private void Awake()
+    {
+        GameManager.changePositionPlayer += SpawningPlayer;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +40,14 @@ public class PlayerManager : MonoBehaviour
         characterController = this.GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GameManager.changePositionPlayer += SpawningPlayer;
+        //GameManager.changePositionPlayer += SpawningPlayer;
         CameraManager.onChangingCamera += MayMoveChanger;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.changePositionPlayer -= SpawningPlayer;
+        CameraManager.onChangingCamera -= MayMoveChanger;
     }
     private void FixedUpdate()
     {
@@ -223,7 +232,7 @@ public class PlayerManager : MonoBehaviour
         gameCanvas.UpdateCubeCounterText(0,4*level);
         mayMove = false;
         transform.position = position;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         mayMove = true;
     }
 }

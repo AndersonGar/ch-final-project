@@ -18,7 +18,10 @@ public class CameraManager : MonoBehaviour
         camera = GetComponent<Camera>();
         MenuManager.onPausingOrResuming += AllowChange;
     }
-
+    private void OnDisable()
+    {
+        MenuManager.onPausingOrResuming -= AllowChange;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,10 +38,15 @@ public class CameraManager : MonoBehaviour
         if (!value && GetComponent<AudioSource>())
         {
             GetComponent<AudioSource>().Stop();
+            HUD.enabled = value;
         }
         else if(GetComponent<AudioSource>())
         {
             GetComponent<AudioSource>().Play();
+            if (camera.targetDisplay > 0)
+            {
+                HUD.enabled = value;
+            }
         }
     }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
     public static event Action OnResetTime;
     public static event Action<Transform> onInstantianteingMaze,onChangingPosFromTwister;
 
-
+    private void Awake()
+    {
+        //InstiateMaze();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,11 @@ public class GameManager : MonoBehaviour
         PlayerManager.crossDoor += ChangeMaze;
         InstiateMaze();
         ResetTimer();
+    }
+
+    private void OnDisabled()
+    {
+        PlayerManager.crossDoor -= ChangeMaze;
     }
 
     // Update is called once per frame
@@ -43,7 +51,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         if (level >= mazeList.Count)
         {
+            level = 0;
             gameCanvas.UpdateMessageText(5);
+            EndSceneManager.win = true;
+            SceneManager.LoadScene("EndGame");
             Debug.Log("Ganaste, felicitaciones");
             return;
         }
@@ -91,6 +102,8 @@ public class GameManager : MonoBehaviour
             _minutes = 0;
             _seconds = 0;
             _miliseconds = 0;
+            EndSceneManager.win = false;
+            SceneManager.LoadScene("EndGame");
         }
         else if (time <= timeLimit)
         {

@@ -8,10 +8,14 @@ public class TwisterBehaviour : MonoBehaviour
     NavMeshAgent navMeshAgent;
     public Transform target;
 
+    private void Awake()
+    {
+        GameManager.onChangingPosFromTwister += SpawnToNewMaze;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.onChangingPosFromTwister += SpawnToNewMaze;
+        //GameManager.onChangingPosFromTwister += SpawnToNewMaze;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
     private void OnDisable()

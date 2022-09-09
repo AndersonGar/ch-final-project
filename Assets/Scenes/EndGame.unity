@@ -122,7 +122,52 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4ff2d56917f18ae49ad1f3fedfb18d93, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 46c71c68d49b6464c9640311d57637c3, type: 2}
+--- !u!1 &571151548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571151549}
+  - component: {fileID: 571151550}
+  m_Layer: 0
+  m_Name: EndStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &571151549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571151548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &571151550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571151548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898f12e8f0dd7d7489909def54e15a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 109990894218566166}
+  caption: {fileID: 109990894218566165}
 --- !u!1 &691246324
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,5 +975,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 109990894804426754, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+      propertyPath: m_Text
+      value: ESTE PROYECTO HA SIDO DESARROLLADO PARA EL CURSO "DESARROLLO DE VIDEOJUEGOS"
+        EN CODERHOUSE
+      objectReference: {fileID: 0}
+    - target: {fileID: 109990895050455897, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+      propertyPath: m_Text
+      value: PRESIONA F
+      objectReference: {fileID: 0}
+    - target: {fileID: 109990895252467660, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+      propertyPath: m_Text
+      value: Gracias por jugar esta demo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466984512655397375, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 109990894777153232, guid: b894bf76272406e4da84244541ce65fe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+--- !u!114 &109990894218566165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 109990894804426754, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+  m_PrefabInstance: {fileID: 109990894218566164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &109990894218566166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 109990894160921811, guid: b894bf76272406e4da84244541ce65fe, type: 3}
+  m_PrefabInstance: {fileID: 109990894218566164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

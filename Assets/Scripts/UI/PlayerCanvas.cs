@@ -14,6 +14,12 @@ public class PlayerCanvas : MonoBehaviour
         GameManager.OnResetTime += ResetView;
     }
 
+    private void OnDisable()
+    {
+        GameManager.OnTimelineLimit -= ModifyView;
+        GameManager.OnResetTime -= ResetView;
+    }
+
     // Update is called once per frame
     void Update()
     {
