@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public int GetLevel()
+    {
+        return level + 1;
+    }
 
     public void InstiateMaze()
     {

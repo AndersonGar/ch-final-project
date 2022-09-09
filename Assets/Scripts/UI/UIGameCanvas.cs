@@ -35,9 +35,9 @@ public class UIGameCanvas : MonoBehaviour
         StartCoroutine(StartMessaging(_message));
     }
 
-    public void UpdateCubeCounterText(int i)
+    public void UpdateCubeCounterText(int i, int goal)
     {
-        txtCubeCounter.text = i + "/" + 4.ToString();
+        txtCubeCounter.text = i + "/" + goal.ToString();
     }
 
     IEnumerator StartMessaging(string message)

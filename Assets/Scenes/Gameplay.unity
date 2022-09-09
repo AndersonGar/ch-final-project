@@ -2484,7 +2484,7 @@ PrefabInstance:
       objectReference: {fileID: 1802244230}
     - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: messagesValues.Array.size
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: messagesValues.Array.data[0]
@@ -2504,7 +2504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: messagesValues.Array.data[4]
-      value: Haz eliminado todos los cubos, encuentra la puerta
+      value: Haz eliminado todos los cubos, encuentra el portal
       objectReference: {fileID: 0}
     - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: messagesValues.Array.data[5]
@@ -2513,6 +2513,38 @@ PrefabInstance:
     - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: messagesValues.Array.data[6]
       value: "Perdiste, el tiempo se acab\xF3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[7]
+      value: Primer cubo recolectado
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[8]
+      value: "Van 2 cubos recolectados, m\xE1s r\xE1pido"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[9]
+      value: Te faltan 5 cubos, vamos
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[10]
+      value: "Solo faltan 4 m\xE1s, t\xFA puedes"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[11]
+      value: "Ya solo faltan 3 cubos m\xE1s"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[12]
+      value: "Con 2 cubos m\xE1s abrir\xE1s ese portal"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[13]
+      value: "Est\xE1s tan cerca, un cubo m\xE1s"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
+      propertyPath: messagesValues.Array.data[14]
+      value: Ahora corre al portal
       objectReference: {fileID: 0}
     - target: {fileID: 5464568692714085058, guid: 9c709524c8fbd4225bd6d5a5c6b536b2, type: 3}
       propertyPath: OnNotification.m_PersistentCalls.m_Calls.Array.size
@@ -2910,6 +2942,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3147878929700559612, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147878929700559612, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
+      propertyPath: runSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3147878929700559612, guid: 419e47c2d5e40c94cace528f4762a703, type: 3}
       propertyPath: gameCanvas
       value: 

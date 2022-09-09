@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     bool pause;
     public Text progress, press;
     int mazeProgress;
+    public static event Action<bool> onPausingOrResuming;
     public enum MenuBehaviour
     {
         MainMenu,
@@ -74,6 +75,10 @@ public class MenuManager : MonoBehaviour
                 else
                 {
                     Time.timeScale = 1;
+                }
+                if (onPausingOrResuming!=null)
+                {
+                    onPausingOrResuming(!pause);
                 }
                 break;
             default:

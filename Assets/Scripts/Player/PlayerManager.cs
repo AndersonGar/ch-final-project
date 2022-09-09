@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     public float RotationMultiplier = 1f;
     float m_CameraVerticalAngle = 0f;
     public float speed = 6.0F;
+    public float runSpeed;
+    float realSpeed;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     CharacterController characterController;
@@ -28,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        realSpeed = speed;
         onGround = true;
         onWall = false;
         animator = GetComponent<Animator>();
@@ -35,14 +38,21 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GameManager.changePositionPlayer += SpawningPlayer;
+        CameraManager.onChangingCamera += MayMoveChanger;
     }
     private void FixedUpdate()
     {
         if (mayMove)
         {
+            CharacterRun();
             CharacterRotation();
             CharacterMovement();
         }
+    }
+
+    void MayMoveChanger(bool value)
+    {
+        mayMove = value;
     }
     // Update is called once per frame
     void Update()
@@ -50,6 +60,17 @@ public class PlayerManager : MonoBehaviour
         
     }
 
+    void CharacterRun()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            realSpeed = runSpeed;
+        }
+        else
+        {
+            realSpeed = speed;
+        }
+    }
 
     void CharacterMovement()
     {
@@ -57,7 +78,7 @@ public class PlayerManager : MonoBehaviour
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= speed;
+            moveDirection *= realSpeed;
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
@@ -136,13 +157,20 @@ public class PlayerManager : MonoBehaviour
 
     void PickupMessageUI()
     {
-        gameCanvas.UpdateCubeCounterText(pickups);
-        gameCanvas.UpdateMessageText(pickups);
+        int level = gameManager.GetLevel();
+        gameCanvas.UpdateCubeCounterText(pickups,4*level);
+        int _pickupMessage = pickups;
+        if(level == 2)
+        {
+            _pickupMessage = pickups + 6;
+        }
+        gameCanvas.UpdateMessageText(_pickupMessage);
     }
 
     void CheckGameGoal()
     {
-        if (pickups >= 4)
+        int level = gameManager.GetLevel();
+        if (pickups >= level*4)
         {
             Debug.Log("Abriendo puertas");
             if (cubesCollected != null)
@@ -191,7 +219,8 @@ public class PlayerManager : MonoBehaviour
 
     public IEnumerator SpawnPlayer(Vector3 position)
     {
-        gameCanvas.UpdateCubeCounterText(0);
+        int level = gameManager.GetLevel();
+        gameCanvas.UpdateCubeCounterText(0,4*level);
         mayMove = false;
         transform.position = position;
         yield return new WaitForSeconds(1);
