@@ -34,7 +34,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Insert) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Escape))
         {
             PressSpace();
         }
@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
         {
             case MenuBehaviour.MainMenu:
                 progress.text = mazeProgress + " de 2 laberintos";
-                press.text = "PRESIONA ENTER PARA EMPEZAR";
+                press.text = "PRESIONA F PARA EMPEZAR";
                 break;
             case MenuBehaviour.PauseMenu:
                 progress.text = "Laberinto "+(mazeProgress+1);
