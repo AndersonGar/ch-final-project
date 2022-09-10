@@ -130,6 +130,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             mayMove = false;
+            GetComponent<AudioSource>().Play();
             if (onTouchingEnemy != null)
             {
                 onTouchingEnemy(this.transform);

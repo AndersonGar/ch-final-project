@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CameraManager : MonoBehaviour
 {
     public Canvas HUD, FireEffect;
-    public GameObject meteorEffect;
+    public GameObject meteorEffect, lightTopView;
     Camera camera;
     bool allowChangeCamera;
     public static event Action<bool> onChangingCamera;
@@ -70,6 +70,7 @@ public class CameraManager : MonoBehaviour
                     GetComponent<AudioSource>().Play();
                     HUD.enabled = false;
                     FireEffect.enabled = false;
+                    lightTopView.SetActive(true);
                     meteorEffect.SetActive(true);
                 }
                 else
@@ -78,6 +79,7 @@ public class CameraManager : MonoBehaviour
                     HUD.enabled = true;
                     FireEffect.enabled = true;
                     meteorEffect.SetActive(false);
+                    lightTopView.SetActive(false);
                 }
                 if (onChangingCamera != null)
                 {
